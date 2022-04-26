@@ -30,7 +30,7 @@ The project workspace consists of 6 files:
 • etl.py: Reads and loads the song_data and log_data files and loads the tables. It is populated based on the etl.ipynb block.
 • READMY.md: Contains project details.
 • sql_queries.py: Contains all SQL queries and is important for create_tables.py, etl.ipynb and etl.py files.
-• test.ipynb: Displays the first rows of each table to check how the database is doing.
+• test.ipynb: Display the first rows of each table to check how the database is doing.
 
 
 ## How to run the script?

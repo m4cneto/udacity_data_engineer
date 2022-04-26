@@ -6,6 +6,14 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    
+    ''' 
+    This function does the following:
+    1) Processes the song data JSON files. 
+    2) Reads the JSON files into a pandas df. 
+    3) Inserts data into song and artist table for the specified fields.
+    '''  
+    
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -19,6 +27,19 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    
+    '''
+    This function does the following: 
+    1) Process the log data JSON files. 
+    2) Read the JSON files into a pandas df.
+    3) Converts the timestamp column to datetime. 
+    4) Enters data into the time, users and songplay tables with the filtered field.
+    
+    Desccription of Arguments Passed:
+    1) cur: Database cursor. 
+    2) filepath: Data files location
+    '''
+    
     # open log file
     df = pd.read_json(filepath,lines=True)
 
@@ -61,6 +82,12 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    
+    '''
+    The function processes all data files within the specified location. 
+    It applies an iterative loop to load each data file in a loop in json format into the database
+    '''   
+        
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
